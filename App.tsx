@@ -9,7 +9,7 @@ export default class App extends React.Component {
             <StatusBar backgroundColor="blue" barStyle="dark-content" />
             <SafeAreaView style={styles.container}>
                <WebView
-                  source={{uri: "https://www.superlosmontes.com/site/"}}
+                  source={{uri: "https://turbostepsapp.brewnmotion.com"}}
                   style={{marginTop: 20}}
                />
             </SafeAreaView>
@@ -24,3 +24,5 @@ const styles = StyleSheet.create({
       height: 10,
    },
 });
+
+// https://www.superlosmontes.com/site/
