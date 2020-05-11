@@ -1,0 +1,9 @@
+Documentacion
+
+https://docs.expo.io/distribution/building-standalone-apps/?redirected
+
+Para para compilar 
+npm start
+
+Para exportar a Android
+expo build:android
