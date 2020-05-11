@@ -1,10 +1,14 @@
 import React, { useEffect,useRef } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert,ActivityIndicator } from "react-native";
+import { Text, View, StyleSheet,SafeAreaView, StatusBar,BackHandler, Alert,ActivityIndicator } from "react-native";
 import WebView from 'react-native-webview';
 
 export default function App() {
    const styles = StyleSheet.create({
-      flexContainer: {
+        container: {
+          flex: 1,
+          height: 10,
+        },
+       flexContainer: {
         flex: 10
       }
     })
@@ -39,17 +43,23 @@ export default function App() {
    });
 
      return (
-      <WebView
-        source={{ uri: 'https://www.superlosmontes.com/site/'}}
-        ref={webview}
-        startInLoadingState={true}
-         renderLoading={() => (
-            <ActivityIndicator
-               color='black'
-               size='large'
-               style={styles.flexContainer}
-            />
-         )}
-      /> 
-    )
+   /*  <SafeAreaView style={styles.container}>  */
+   <React.Fragment>
+    <StatusBar backgroundColor="#44a7e0" barStyle="dark-content"/>
+      <SafeAreaView style={styles.container}>
+            <WebView
+              source={{ uri:'https://www.superlosmontes.com/site/'}}
+              ref={webview}
+              startInLoadingState={true}
+              renderLoading={() => (
+                  <ActivityIndicator
+                    color='black'
+                    size='large'
+                    style={styles.flexContainer}
+                  />
+              )}
+            /> 
+      </SafeAreaView>
+    </React.Fragment>
+    );
 };
