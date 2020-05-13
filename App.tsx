@@ -1,8 +1,15 @@
 import React, { useEffect,useRef } from "react";
 import { Text, View, StyleSheet,SafeAreaView, StatusBar,BackHandler, Alert,ActivityIndicator } from "react-native";
 import WebView from 'react-native-webview';
+/* import * as Manifest from '@expo/android-manifest'; */
+ 
+/* // Read the project's manifest
+const manifest = await Manifest.readAsync(manifestPath);
+ 
+// Get the Android app permissions as an array
+const permissions: string[] = Manifest.getPermissions(manifest); */
 
-export default function App() {
+export default function App(){
    const styles = StyleSheet.create({
         container: {
           flex: 1,
@@ -16,11 +23,11 @@ export default function App() {
    useEffect(() => { 
       const HOME_URL = "https://www.superlosmontes.com/site/"; 
       const onAndroidBackPress = (): boolean => {
-      
-         /* const currentURL = webview.getUrl();
-         if(currentURL!=HOME_URL){  */
-
-         if (webview.current) { 
+      const currentURL = webview.current.startUrl;
+         
+          /* console.log(webview.current.startUrl); */
+          /* if (webview.current) {  */
+          if(currentURL!=HOME_URL){ 
              webview.current.goBack();
              return true;
          }else{
@@ -42,24 +49,23 @@ export default function App() {
        };
    });
 
-     return (
-   /*  <SafeAreaView style={styles.container}>  */
-   <React.Fragment>
-    <StatusBar backgroundColor="#44a7e0" barStyle="dark-content"/>
-      <SafeAreaView style={styles.container}>
-            <WebView
-              source={{ uri:'https://www.superlosmontes.com/site/'}}
-              ref={webview}
-              startInLoadingState={true}
-              renderLoading={() => (
-                  <ActivityIndicator
-                    color='black'
-                    size='large'
-                    style={styles.flexContainer}
-                  />
-              )}
-            /> 
-      </SafeAreaView>
-    </React.Fragment>
-    );
+      return (
+        <React.Fragment>
+          <StatusBar backgroundColor="#44a7e0" barStyle="dark-content"/>
+            <SafeAreaView style={styles.container}>
+                  <WebView
+                  ref={webview}
+                    source={{ uri:'https://www.superlosmontes.com/site/'}}
+                    startInLoadingState={true}
+                    renderLoading={() => (
+                        <ActivityIndicator
+                          color='black'
+                          size='large'
+                          style={styles.flexContainer}
+                        />
+                    )}
+                  /> 
+            </SafeAreaView>
+          </React.Fragment>
+      );
 };

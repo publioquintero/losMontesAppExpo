@@ -24,5 +24,18 @@ const styles = StyleSheet.create({
       height: 10,
    },
 });
-
 // https://www.superlosmontes.com/site/
+
+
+{/*               <WebView
+                  ref={webview}
+                    source={{ uri:'https://www.superlosmontes.com/site/'}}
+                    startInLoadingState={true}
+                    renderLoading={() => (
+                        <ActivityIndicator
+                          color='black'
+                          size='large'
+                          style={styles.flexContainer}
+                        />
+                    )}
+                  />  */}
